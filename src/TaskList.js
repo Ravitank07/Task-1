@@ -1,3 +1,4 @@
+// src/TaskList.js
 import React, { useState } from 'react';
 import TaskItem from './TaskItem';
 
@@ -31,9 +32,30 @@ function TaskList({ tasks, addTask, updateTask, deleteTask, toggleTaskCompletion
       </form>
 
       <div className="mb-4">
-        <button onClick={() => setFilter('all')} className="mr-2">All</button>
-        <button onClick={() => setFilter('completed')} className="mr-2">Completed</button>
-        <button onClick={() => setFilter('uncompleted')}>Uncompleted</button>
+        <button 
+          onClick={() => setFilter('all')}
+          className={`px-4 py-2 mr-2 rounded ${
+            filter === 'all' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
+          }`}
+        >
+          All
+        </button>
+        <button 
+          onClick={() => setFilter('completed')}
+          className={`px-4 py-2 mr-2 rounded ${
+            filter === 'completed' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
+          }`}
+        >
+          Completed
+        </button>
+        <button 
+          onClick={() => setFilter('uncompleted')}
+          className={`px-4 py-2 rounded ${
+            filter === 'uncompleted' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
+          }`}
+        >
+          Uncompleted
+        </button>
       </div>
 
       <ul>
